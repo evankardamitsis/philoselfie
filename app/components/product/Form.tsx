@@ -14,6 +14,8 @@ import ProductOptions from '~/components/product/Options';
 import {SanityCustomProductOption} from '~/lib/sanity';
 import {hasMultipleProductOptions} from '~/lib/utils';
 
+import SubscribeButton from './buttons/SubscribeButton';
+
 export default function ProductForm({
   product,
   selectedVariant,
@@ -53,6 +55,7 @@ export default function ProductForm({
       )}
 
       <div className="flex flex-col space-y-2">
+        <SubscribeButton checkoutLink="https://buy.stripe.com/test_6oE6pUcyWgRrbyo7ss" />
         <AddToCartButton
           lines={[
             {
