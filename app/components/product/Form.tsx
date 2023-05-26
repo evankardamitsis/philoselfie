@@ -70,10 +70,10 @@ export default function ProductForm({
           }}
           buttonClassName="w-full"
         />
-        <BuyNowButton
+        {/* <BuyNowButton
           lines={[{merchandiseId: selectedVariant.id, quantity: 1}]}
           disabled={isOutOfStock}
-        />
+        /> */}
       </div>
     </>
   );
