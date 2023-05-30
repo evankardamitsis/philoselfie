@@ -20,13 +20,16 @@ export default function HomeHero({hero}: Props) {
       {hero.title && (
         <h1
           className={clsx(
-            'mb-7 max-w-[60rem] whitespace-pre-line text-center text-3xl',
-            'md:text-5xl',
+            'mb-7 max-w-[60rem] whitespace-pre-line text-center text-2xl',
+            'md:text-3xl',
           )}
         >
           {hero.title}
         </h1>
       )}
+      <h3 className="mb-7 text-center text-lg">
+        Ελιξίριο πολυβιταμινών και μετάλλων με εκχύλισμα φύλλων ελιάς.
+      </h3>
 
       {/* Link */}
       {hero.link && <LinkButton link={hero.link} />}
@@ -36,7 +39,7 @@ export default function HomeHero({hero}: Props) {
         <div
           className={clsx(
             'mt-6 w-full', //
-            'md:mt-12',
+            'md:mt-12 md:w-9/12',
           )}
         >
           <HeroContent content={hero.content} />

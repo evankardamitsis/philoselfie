@@ -37,7 +37,7 @@ export default function HeroContent({content}: Props) {
   }, [content]);
 
   return (
-    <div className="relative flex w-full place-content-center overflow-hidden rounded-md bg-lightGray">
+    <div className="relative flex w-full place-content-center overflow-hidden rounded-md bg-lightGray lg:h-[578px]">
       {heroContent}
     </div>
   );
