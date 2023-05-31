@@ -3,6 +3,27 @@ import type {Image, PortableTextBlock} from '@sanity/types';
 import type {SanityColorTheme} from '~/lib/theme';
 import type {ProductWithNodes} from '~/types/shopify';
 
+export interface SanityTwoColumnLayout {
+  _key?: string;
+  _type: 'twoColumnLayout';
+  leftContent: PortableTextBlock[];
+  rightContent: PortableTextBlock[];
+}
+
+export interface SanityIconListItem {
+  _key?: string;
+  _type: 'iconListItem';
+  text: string;
+  icon: SanityAssetImage;
+}
+
+export interface SanityIconList {
+  _key?: string;
+  _type: 'iconList';
+  items: SanityIconListItem[];
+  orientation: 'vertical' | 'horizontal';
+}
+
 export interface SanityAssetImage extends Image {
   _type: 'image';
   altText?: string;
@@ -134,7 +155,9 @@ export type SanityModule =
   | SanityModuleGrid
   | SanityModuleImage
   | SanityModuleInstagram
-  | SanityModuleProduct;
+  | SanityModuleProduct
+  | SanityTwoColumnLayout
+  | SanityIconList;
 
 export type SanityModuleAccordion = {
   _key?: string;

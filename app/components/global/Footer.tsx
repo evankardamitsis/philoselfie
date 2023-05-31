@@ -63,7 +63,7 @@ export default function Footer() {
           )}
         >
           <div className="pb-4">
-            <LogoIcon />
+            <LogoIcon width="200" />
           </div>
 
           <div

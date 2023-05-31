@@ -103,6 +103,7 @@ module.exports = {
       field: '1.25',
       caption: '1.25',
       paragraph: '1.6',
+      title: '1.8',
     },
     extend: {
       colors: {
@@ -118,7 +119,7 @@ module.exports = {
         primaryContrast: '#000000',
         blackButton: '#000000',
         yellowButton: '#FFDF00',
-        primaryText: '#000000',
+        primaryText: '##151515',
         secondaryText: '#6E7678',
         placeholderText: '#99A0A1',
         contrastText: '#FFFFFF',
