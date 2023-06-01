@@ -65,9 +65,8 @@ export default function HomeHero({hero}: Props) {
         <TwoColumnLayout
           column1={
             <>
-              <h3 className="leading-15 mb-7 text-left text-xl font-bold leading-paragraph">
-                Με καθημερινή χρήση, το Philoselfie δρα ορατά στο σώμα και την
-                ψυχολογία*.
+              <h3 className="leading-15 mb-7 text-left text-2xl font-bold leading-paragraph">
+                Το Philoselfie δρα ορατά στο σώμα και την ψυχολογία*.
               </h3>
               <p className="text-sm text-secondaryText">
                 *Αποδεδειγμένοι ισχυρισμοί υγείας σύμφωνα με την EFSA
@@ -85,9 +84,9 @@ export default function HomeHero({hero}: Props) {
                 ]}
               />
               <img
-                src="https://cdn.shopify.com/s/files/1/0755/1808/3415/files/icons-claims.png?v=1685624491"
+                src="https://cdn.shopify.com/s/files/1/0755/1808/3415/files/icons-claims_1.png?v=1685625482"
                 alt="health-claims"
-                className="mt-12 w-72"
+                className="mt-12 w-96"
               />
               <Button className="mt-12 border-2 bg-white text-offBlack">
                 Μάθε περισσότερα
@@ -101,6 +100,30 @@ export default function HomeHero({hero}: Props) {
             height: 357,
           }}
           imageOnLeft={false}
+        />
+        <div className="separator mb-22 mt-22"></div>
+        <TwoColumnLayout
+          column1={
+            <>
+              <h3 className="leading-15 mb-7 text-center text-2xl font-bold leading-paragraph">
+                Ολιστική Δράση
+              </h3>
+              <p className="text-center text-sm text-secondaryText">
+                Μία μόνο κάψουλα Philoselfie την ημέρα υποστηρίζει 32 γενικές
+                και 69 ειδικές ζωτικές λειτουργίες.
+              </p>
+              <Button className="mx-auto mt-12 border-2 bg-white text-offBlack">
+                Μάθε πως
+              </Button>
+            </>
+          }
+          column2={{
+            src: 'https://cdn.shopify.com/s/files/1/0755/1808/3415/files/Soap-Image5.png',
+            alt: 'Image Alt Text',
+            width: 550,
+            height: 157,
+          }}
+          imageOnLeft={true}
         />
       </div>
     </>

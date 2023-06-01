@@ -33,6 +33,7 @@ export default function TwoColumnLayout({
         alt={column2.alt}
         width={column2.width}
         height={column2.height}
+        className="rounded-lg"
       />
     </div>
   ) : null;
