@@ -1,3 +1,5 @@
+/* eslint-disable hydrogen/prefer-image-component */
+import {Image} from '@shopify/hydrogen';
 import clsx from 'clsx';
 
 import LinkButton from '~/components/elements/LinkButton';
@@ -6,6 +8,7 @@ import TwoColumnLayout from '~/components/elements/TwoColumnLayout';
 import HeroContent from '~/components/heroes/HeroContent';
 import type {SanityHeroHome} from '~/lib/sanity';
 
+import Button from '../elements/Button';
 import Check from '../icons/Check';
 
 type Props = {
@@ -81,9 +84,23 @@ export default function HomeHero({hero}: Props) {
                   },
                 ]}
               />
+              <img
+                src="https://cdn.shopify.com/s/files/1/0755/1808/3415/files/icons-claims.png?v=1685624491"
+                alt="health-claims"
+                className="mt-12 w-72"
+              />
+              <Button className="mt-12 border-2 bg-white text-offBlack">
+                Μάθε περισσότερα
+              </Button>
             </>
           }
-          column2={<p>This is the content of column 2.</p>}
+          column2={{
+            src: 'https://cdn.shopify.com/s/files/1/0755/1808/3415/files/Soap-Image5.png',
+            alt: 'Image Alt Text',
+            width: 550,
+            height: 357,
+          }}
+          imageOnLeft={false}
         />
       </div>
     </>
