@@ -117,6 +117,7 @@ module.exports = {
         primaryMain: '#FFDF00',
         primaryLight: '#FEFBE6',
         primaryContrast: '#000000',
+        offWhite: '#f7f9fb',
         blackButton: '#000000',
         yellowButton: '#FFDF00',
         primaryText: '##151515',

@@ -1,4 +1,4 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
+// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable hydrogen/prefer-image-component */
 import clsx from 'clsx';
 import React from 'react';
@@ -14,12 +14,15 @@ type TwoColumnLayoutProps = {
   column1: React.ReactNode;
   column2?: ImageData;
   imageOnLeft?: boolean;
+  className?: string;
+  backgroundColor?: string;
 };
 
 export default function TwoColumnLayout({
   column1,
   column2,
   imageOnLeft = false,
+  className,
 }: TwoColumnLayoutProps) {
   const imageColumn = column2 ? (
     <div
@@ -39,7 +42,12 @@ export default function TwoColumnLayout({
   ) : null;
 
   return (
-    <div className="flex flex-col justify-center md:flex-row md:items-center">
+    <div
+      className={clsx(
+        className,
+        'flex flex-col justify-center md:flex-row md:items-center',
+      )}
+    >
       {imageOnLeft ? (
         <>
           {imageColumn}
