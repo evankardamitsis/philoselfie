@@ -5,6 +5,7 @@ import clsx from 'clsx';
 
 import LinkButton from '~/components/elements/LinkButton';
 import List from '~/components/elements/List';
+import ThreeColumnLayout from '~/components/elements/ThreeColumnLayout';
 import TwoColumnLayout from '~/components/elements/TwoColumnLayout';
 import HeroContent from '~/components/heroes/HeroContent';
 import type {SanityHeroHome} from '~/lib/sanity';
@@ -18,7 +19,7 @@ type Props = {
 
 export default function HomeHero({hero}: Props) {
   return (
-    <>
+    <div>
       <div
         className={clsx(
           'flex flex-col items-center rounded-b-xl bg-primaryLight px-4 pb-4 pt-24',
@@ -138,36 +139,111 @@ export default function HomeHero({hero}: Props) {
                 Φρόντισε για τον εαυτό σου και εμείς φροντίζουμε να έχεις τον
                 απόλυτο έλεγχο της συνδρομής σου μέσα από το προφίλ σου.
               </p>
-              <List
-                items={[
-                  {icon: <Check />, text: 'Περισσότερη ενέργεια'},
-                  {icon: <Check />, text: 'Καλύτερη διάθεση'},
-                  {icon: <Check />, text: 'Ενισχυμένο ανοσοποιητικό'},
-                  {icon: <Check />, text: 'Απολαυστικός ύπνος'},
-                  {
-                    icon: <Check />,
-                    text: 'Βελτιωμένη κινητικότητα του εντέρου',
-                  },
-                ]}
-              />
-              <img
-                src="https://cdn.shopify.com/s/files/1/0755/1808/3415/files/icons-claims_1.png?v=1685625482"
-                alt="health-claims"
-                className="mt-12 w-96"
-              />
               <Button className="mt-12">Ξεκίνα συνδρομή</Button>
             </>
           }
-          column2={{
-            src: 'https://cdn.shopify.com/s/files/1/0755/1808/3415/files/img-placeholder.jpg?v=1685629029',
-            alt: 'Image Alt Text',
-            width: 550,
-            height: 357,
-          }}
+          column2={[
+            <>
+              <div className="flex flex-row justify-between">
+                <List
+                  key="list"
+                  items={[
+                    {icon: <Check />, text: 'Περισσότερη ενέργεια'},
+                    {icon: <Check />, text: 'Καλύτερη διάθεση'},
+                    {icon: <Check />, text: 'Ενισχυμένο ανοσοποιητικό'},
+                    {icon: <Check />, text: 'Απολαυστικός ύπνος'},
+                    {
+                      icon: <Check />,
+                      text: 'Βελτιωμένη κινητικότητα του εντέρου',
+                    },
+                  ]}
+                  className="mt-12"
+                />
+                <div className="mr-[-60px]">
+                  <img
+                    key="image"
+                    src="https://cdn.shopify.com/s/files/1/0755/1808/3415/files/brunch-icon.png?v=1685703695"
+                    alt="Flower Alt Text"
+                    width={290}
+                    height={268}
+                    className="flex content-end"
+                  />
+                </div>
+              </div>
+            </>,
+          ]}
           imageOnLeft={false}
-          className="mt-38"
+          className="mt-38 rounded-lg bg-primaryLight p-12"
         />
+        <div className="mb-12 mt-38 flex flex-col">
+          <h2 className="mb-7 text-center text-[30px] font-bold leading-paragraph">
+            Health Elixir πακέτα
+          </h2>
+          <ThreeColumnLayout
+            column1={{
+              content: (
+                <div>
+                  <h3 className="text-center font-bold">Μηνιαίο</h3>
+                  <p className="mt-2 text-center text-secondaryText">
+                    1 συσκευασία | 30 κάψουλες
+                  </p>
+                  <h4 className="mt-3 text-center text-lg font-bold">
+                    19.99€/μήνα
+                  </h4>
+                  <Button className="mx-auto mt-6">Αγορά τώρα</Button>
+                </div>
+              ),
+              imageData: {
+                src: 'https://cdn.shopify.com/s/files/1/0755/1808/3415/files/img-placeholder.jpg?v=1685629029',
+                alt: 'Image 1 Alt Text',
+                width: 487,
+                height: 284,
+              },
+            }}
+            column2={{
+              content: (
+                <div>
+                  <h3 className="text-center font-bold">Μηνιαίο</h3>
+                  <p className="mt-2 text-center text-secondaryText">
+                    1 συσκευασία | 30 κάψουλες
+                  </p>
+                  <h4 className="mt-3 text-center text-lg font-bold">
+                    19.99€/μήνα
+                  </h4>
+                  <Button className="mx-auto mt-6">Αγορά τώρα</Button>
+                </div>
+              ),
+              imageData: {
+                src: 'https://cdn.shopify.com/s/files/1/0755/1808/3415/files/img-placeholder.jpg?v=1685629029',
+                alt: 'Image 1 Alt Text',
+                width: 487,
+                height: 284,
+              },
+            }}
+            column3={{
+              content: (
+                <div>
+                  <h3 className="text-center font-bold">Μηνιαίο</h3>
+                  <p className="mt-2 text-center text-secondaryText">
+                    1 συσκευασία | 30 κάψουλες
+                  </p>
+                  <h4 className="mt-3 text-center text-lg font-bold">
+                    19.99€/μήνα
+                  </h4>
+                  <Button className="mx-auto mt-6">Αγορά τώρα</Button>
+                </div>
+              ),
+              imageData: {
+                src: 'https://cdn.shopify.com/s/files/1/0755/1808/3415/files/img-placeholder.jpg?v=1685629029',
+                alt: 'Image 3 Alt Text',
+                width: 487,
+                height: 284,
+              },
+            }}
+            className="gap-8"
+          />
+        </div>
       </div>
-    </>
+    </div>
   );
 }

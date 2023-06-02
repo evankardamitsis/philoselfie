@@ -8,11 +8,12 @@ type ListItemProps = {
 
 type ListProps = {
   items: ListItemProps[];
+  className?: string;
 };
 
-export default function List({items}: ListProps) {
+export default function List({items, className}: ListProps) {
   return (
-    <ul className="space-y-4">
+    <ul className={clsx('space-y-4', className)}>
       {items.map((item, index) => (
         <li
           key={index}

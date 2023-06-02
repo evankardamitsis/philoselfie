@@ -12,10 +12,9 @@ type ImageData = {
 
 type TwoColumnLayoutProps = {
   column1: React.ReactNode;
-  column2?: ImageData;
+  column2?: React.ReactNode | ImageData;
   imageOnLeft?: boolean;
   className?: string;
-  backgroundColor?: string;
 };
 
 export default function TwoColumnLayout({
@@ -24,22 +23,33 @@ export default function TwoColumnLayout({
   imageOnLeft = false,
   className,
 }: TwoColumnLayoutProps) {
-  const imageColumn = column2 ? (
-    <div
-      className={clsx('w-full', {
-        'md:ml-14 md:mr-2 md:w-1/2': imageOnLeft,
-        'md:ml-22 md:mr-4 md:w-1/2': !imageOnLeft,
-      })}
-    >
-      <img
-        src={column2.src}
-        alt={column2.alt}
-        width={column2.width}
-        height={column2.height}
-        className="rounded-lg"
-      />
-    </div>
-  ) : null;
+  const renderColumn2 = () => {
+    if (typeof column2 === 'object' && 'src' in column2) {
+      return (
+        <div
+          key="imageColumn"
+          className={clsx('w-full', {
+            'md:ml-14 md:mr-2 md:w-1/2': imageOnLeft,
+            'md:ml-22 md:mr-4 md:w-1/2': !imageOnLeft,
+          })}
+        >
+          <img
+            src={column2.src}
+            alt={column2.alt}
+            width={column2.width}
+            height={column2.height}
+            className="rounded-lg"
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div key="column2" className="w-full md:ml-2 md:mr-4 md:w-1/2">
+          {column2}
+        </div>
+      );
+    }
+  };
 
   return (
     <div
@@ -49,15 +59,19 @@ export default function TwoColumnLayout({
       )}
     >
       {imageOnLeft ? (
-        <>
-          {imageColumn}
-          <div className="w-full md:ml-2 md:mr-4 md:w-1/2">{column1}</div>
-        </>
+        <div key="imageFirst" className="flex">
+          {renderColumn2()}
+          <div key="column1" className="w-full md:ml-2 md:mr-4 md:w-1/2">
+            {column1}
+          </div>
+        </div>
       ) : (
-        <>
-          <div className="w-full md:ml-2 md:mr-4 md:w-1/2">{column1}</div>
-          {imageColumn}
-        </>
+        <div key="column1First" className="flex">
+          <div key="column1" className="w-full md:ml-2 md:mr-4 md:w-1/2">
+            {column1}
+          </div>
+          {renderColumn2()}
+        </div>
       )}
     </div>
   );
