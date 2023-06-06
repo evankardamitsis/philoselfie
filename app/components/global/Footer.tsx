@@ -1,11 +1,105 @@
 import {useMatches} from '@remix-run/react';
 import clsx from 'clsx';
+import React from 'react';
 
 import SanityFooter from '~/components/global/SanityFooter';
 import LogoIcon from '~/components/icons/Logo';
 import {Link} from '~/components/Link';
 import PortableText from '~/components/portableText/PortableText';
 import type {SanityLink} from '~/lib/sanity';
+
+const firstColumnLinks = [
+  {
+    _key: 'link1',
+    _type: 'linkExternal',
+    url: 'https://example.com',
+    title: 'Shop',
+  },
+  {
+    _key: 'link2',
+    _type: 'linkExternal',
+    slug: 'https://example.com',
+    title: 'Σύνθεση',
+  },
+  {
+    _key: 'link3',
+    _type: 'linkExternal',
+    slug: 'https://example.com',
+    title: 'Δράση',
+  },
+  {
+    _key: 'link4',
+    _type: 'linkExternal',
+    slug: 'https://example.com',
+    title: 'Φιλοσοφία',
+  },
+  {
+    _key: 'link5',
+    _type: 'linkExternal',
+    slug: 'https://example.com',
+    title: 'Άρθρα',
+  },
+  {
+    _key: 'link6',
+    _type: 'linkExternal',
+    slug: 'https://example.com',
+    title: 'Επικοινωνία',
+  },
+  {
+    _key: 'link7',
+    _type: 'linkExternal',
+    slug: 'https://example.com',
+    title: 'Ο λογαριασμός μου',
+  },
+];
+
+const secondColumnLinks = [
+  {
+    _key: 'link3',
+    _type: 'linkExternal',
+    url: 'https://example.com',
+    title: 'External Link 2',
+  },
+  {
+    _key: 'link4',
+    _type: 'linkInternal',
+    slug: '/internal-link-2',
+    title: 'Internal Link 2',
+  },
+];
+
+const renderColumnLinks = (links: any[]) => {
+  return links.map((link) => {
+    if (link._type === 'linkExternal') {
+      return (
+        <div className="mb-6" key={link._key}>
+          <a
+            className="linkTextNavigation"
+            href={link.url}
+            rel="noreferrer"
+            target={link.newWindow ? '_blank' : '_self'}
+          >
+            {link.title}
+          </a>
+        </div>
+      );
+    }
+    if (link._type === 'linkInternal') {
+      if (!link.slug) {
+        return null;
+      }
+
+      return (
+        <div className="mb-6" key={link._key}>
+          <Link className="linkTextNavigation" to={link.slug}>
+            {link.title}
+          </Link>
+        </div>
+      );
+    }
+    return null;
+  });
+};
 
 /**
  * A component that specifies the content of the footer on the website
@@ -52,42 +146,52 @@ export default function Footer() {
       {/* AVKA Footer */}
       <div
         className={clsx(
-          'align-start relative overflow-hidden rounded-xl bg-peach px-4 py-8', //
+          'align-start relative overflow-hidden rounded-xl bg-primaryLight px-4 py-8',
           'md:px-8 md:py-10',
         )}
       >
         <div
           className={clsx(
-            'flex flex-col justify-between', //
-            'md:flex-row',
+            'mb-12 grid grid-cols-1 gap-4 border-t-2 md:grid-cols-3',
           )}
         >
-          <div className="pb-4">
+          <div className="flex flex-col">
             <LogoIcon width="200" />
-          </div>
 
-          <div
-            className={clsx(
-              'my-16 w-full max-w-[22rem] columns-2 gap-x-8 self-start text-md font-bold',
-              'md:my-0 md:max-w-[27rem]',
-            )}
-          >
+            <h5 className="mb-4 w-3/5 font-bold leading-paragraph">
+              ΕΛΙΞΙΡΙΟ ΠΟΛΥΒΙΤΑΜΙΝΩΝ ΚΑΙ ΜΕΤΑΛΛΩΝ ΜΕ ΕΚΧΥΛΙΣΜΑ ΦΥΛΛΩΝ ΕΛΙΑΣ
+            </h5>
+            <p className="w-full leading-paragraph md:w-2/3">
+              Το Philoselfie δεν μοιάζει με κανένα συμπλήρωμα διατροφής.
+              Εκφράζει απόλυτα την πλέον σύγχρονη διατροφική φιλοσοφία, με
+              μελετημένη σύσταση και δοσολογία που καθιστά την αλληλεπίδραση των
+              συστατικών ισχυρότερη από αυτήν που θα είχε κάθε συστατικό
+              μεμονωμένο.
+            </p>
+          </div>
+          <div className="mt-8 flex flex-col md:mt-12">
+            <h5 className="mb-4 font-bold">Menu</h5>
+            {renderColumnLinks(firstColumnLinks)}
+          </div>
+          <div className="mt-8 flex flex-col md:mt-12">
+            <h5 className="mb-4 font-bold">Useful Links</h5>
             {renderLinks}
           </div>
+        </div>
+        <div className="border-t-2 border-slate-700 text-center">
+          <p className="my-5 text-[12px]">
+            Το Philoselfie είναι το συμπλήρωμα διατροφής νέας γενιάς που σε
+            αγαπάει αποδεδειγμένα, καθώς οι ισχυρισμοί υγείας του είναι επίσημα
+            τεκμηριωμένοι από την Ευρωπαϊκή Αρχή Ασφάλειας Τροφίμων (EFSA).
+          </p>
         </div>
         {footer?.text && (
           <PortableText
             blocks={footer.text}
-            className={clsx(
-              'text-xs', //
-              'text-sm text-darkGray',
-            )}
+            className={clsx('text-xs', 'text-sm text-darkGray')}
           />
         )}
       </div>
-
-      {/* Sanity Footer */}
-      {/* <SanityFooter /> */}
     </footer>
   );
 }
