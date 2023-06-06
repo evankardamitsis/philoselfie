@@ -53,25 +53,22 @@ export default function TwoColumnLayout({
 
   return (
     <div
-      className={clsx(
-        className,
-        'flex flex-col justify-center md:flex-row md:items-center',
-      )}
+      className={clsx(className, 'flex flex-col md:flex-row md:items-center')}
     >
       {imageOnLeft ? (
-        <div key="imageFirst" className="flex">
+        <>
           {renderColumn2()}
           <div key="column1" className="w-full md:ml-2 md:mr-4 md:w-1/2">
             {column1}
           </div>
-        </div>
+        </>
       ) : (
-        <div key="column1First" className="flex">
+        <>
           <div key="column1" className="w-full md:ml-2 md:mr-4 md:w-1/2">
             {column1}
           </div>
           {renderColumn2()}
-        </div>
+        </>
       )}
     </div>
   );

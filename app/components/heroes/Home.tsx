@@ -3,6 +3,7 @@
 import {Image} from '@shopify/hydrogen';
 import clsx from 'clsx';
 
+import Banner from '~/components/elements/Banner';
 import LinkButton from '~/components/elements/LinkButton';
 import List from '~/components/elements/List';
 import ThreeColumnLayout from '~/components/elements/ThreeColumnLayout';
@@ -22,16 +23,14 @@ export default function HomeHero({hero}: Props) {
     <div>
       <div
         className={clsx(
-          'flex flex-col items-center rounded-b-xl bg-primaryLight px-4 pb-4 pt-24',
-          'md:px-8 md:pb-8 md:pt-34',
+          'flex flex-col items-center rounded-b-xl bg-primaryLight px-4 pb-4 pt-24 md:px-8 md:pb-8 md:pt-34',
         )}
       >
         {/* Title */}
         {hero.title && (
           <h1
             className={clsx(
-              'mb-7 max-w-[60rem] whitespace-pre-line text-center text-2xl',
-              'md:text-3xl',
+              'mb-7 max-w-[60rem] whitespace-pre-line text-center text-2xl md:text-3xl',
             )}
           >
             {hero.title}
@@ -43,17 +42,12 @@ export default function HomeHero({hero}: Props) {
 
         {/* Link */}
         {hero.link && (
-          <LinkButton link={hero.link} className=" text-primaryLight" />
+          <LinkButton link={hero.link} className="text-primaryLight" />
         )}
 
         {/* Hero content */}
         {hero.content && (
-          <div
-            className={clsx(
-              'mt-6 w-full', //
-              'md:mt-12 md:w-9/12',
-            )}
-          >
+          <div className="mt-6 w-full md:mt-12 md:w-9/12">
             <HeroContent content={hero.content} />
           </div>
         )}
@@ -61,7 +55,6 @@ export default function HomeHero({hero}: Props) {
       <div
         className={clsx(
           'flex flex-col items-center rounded-b-xl bg-offWhite px-4 pb-4 pt-24',
-          // 'md:ml-40 md:px-8 md:pb-8 md:pt-34',
         )}
       >
         <TwoColumnLayout
@@ -187,9 +180,7 @@ export default function HomeHero({hero}: Props) {
                   <p className="mt-2 text-center text-secondaryText">
                     1 συσκευασία | 30 κάψουλες
                   </p>
-                  <h4 className="mt-3 text-center text-lg font-bold">
-                    19.99€/μήνα
-                  </h4>
+                  <h4 className="mt-3 text-center text-lg font-bold">19.99€</h4>
                   <Button className="mx-auto mt-6">Αγορά τώρα</Button>
                 </div>
               ),
@@ -203,12 +194,18 @@ export default function HomeHero({hero}: Props) {
             column2={{
               content: (
                 <div>
-                  <h3 className="text-center font-bold">Μηνιαίο</h3>
+                  <h3 className="text-center font-bold">
+                    3μηνο πακέτο χωρίς συνδρομή
+                  </h3>
                   <p className="mt-2 text-center text-secondaryText">
-                    1 συσκευασία | 30 κάψουλες
+                    3 συσκευασίες | 90 κάψουλες
                   </p>
                   <h4 className="mt-3 text-center text-lg font-bold">
-                    19.99€/μήνα
+                    {' '}
+                    <span className="text-decoration-line: mr-3 text-secondaryText line-through">
+                      60.00€
+                    </span>
+                    55.99€
                   </h4>
                   <Button className="mx-auto mt-6">Αγορά τώρα</Button>
                 </div>
@@ -223,12 +220,18 @@ export default function HomeHero({hero}: Props) {
             column3={{
               content: (
                 <div>
-                  <h3 className="text-center font-bold">Μηνιαίο</h3>
+                  <h3 className="text-center font-bold">
+                    6μηνο πακέτο χωρίς συνδρομή
+                  </h3>
                   <p className="mt-2 text-center text-secondaryText">
-                    1 συσκευασία | 30 κάψουλες
+                    6 συσκευασίες | 180 κάψουλες
                   </p>
                   <h4 className="mt-3 text-center text-lg font-bold">
-                    19.99€/μήνα
+                    {' '}
+                    <span className="text-decoration-line: mr-3 text-secondaryText line-through">
+                      120.00€
+                    </span>
+                    107.99€
                   </h4>
                   <Button className="mx-auto mt-6">Αγορά τώρα</Button>
                 </div>
@@ -241,6 +244,56 @@ export default function HomeHero({hero}: Props) {
               },
             }}
             className="gap-8"
+          />
+        </div>
+        <div className="mb-12 mt-38 flex w-4/5 flex-col">
+          <Banner
+            className="rounded-lg bg-primaryLight p-12"
+            image="https://cdn.shopify.com/s/files/1/0755/1808/3415/files/path314.png?v=1685717198"
+            imagePosition="left"
+            imageWidth={278}
+            imageHeight={258}
+          >
+            <h2 className="mb-5 text-center text-2xl font-bold">
+              Το 80%, ανώτερο του 100%.
+            </h2>
+            <p className="font-300">
+              Το Philoselfie συνδυάζει το 80% της ΣΗΠ* των απαραίτητων βιταμινών
+              και μετάλλων.
+            </p>
+            <Button className="mx-auto mt-12">Μάθε πως</Button>
+          </Banner>
+        </div>
+        <TwoColumnLayout
+          column1={
+            <>
+              <h3 className="mb-7 text-left text-2xl font-bold leading-paragraph md:w-3/4">
+                Έχεις καιρό να πεις νιώθω ο εαυτός μου, νιώθω καλά;
+              </h3>
+              <h5 className="my-5">Η ΚΑΙΝΟΤΟΜΙΑ PHILOSELFIE</h5>
+              <Button className="my-12">Μάθε περισσότερα</Button>
+            </>
+          }
+          column2={[
+            <>
+              <p className="leading-paragraph md:w-2/3">
+                Το Philoselfie δεν μοιάζει με κανένα συμπλήρωμα διατροφής.
+                Εκφράζει απόλυτα την πλέον σύγχρονη διατροφική φιλοσοφία και
+                εισάγει μια πρωτοποριακή διατροφική πραγματικότητα, με
+                αποδεδειγμένα οφέλη σύμφωνα με τις αρχές της Ευρωπαϊκής Αρχής
+                Ασφάλειας Τροφίμων, με μελετημένη σύσταση και δοσολογία που
+                καθιστά τη συνεργική αλληλεπίδραση των συστατικών ισχυρότερη από
+                αυτήν που θα είχε κάθε συστατικό μεμονωμένο.
+              </p>
+            </>,
+          ]}
+          className="ml-10 mt-28 md:mx-auto md:flex md:w-4/5 md:flex-row md:items-center md:justify-center"
+        />
+        <div className="flex flex-col">
+          <img
+            alt="philoselphie tagline"
+            src="https://cdn.shopify.com/s/files/1/0755/1808/3415/files/philo-heartx2.png?v=1686053894"
+            className="mx-auto md:w-2/4"
           />
         </div>
       </div>

@@ -16,6 +16,7 @@ export default function List({items, className}: ListProps) {
     <ul className={clsx('space-y-4', className)}>
       {items.map((item, index) => (
         <li
+          // eslint-disable-next-line react/no-array-index-key
           key={index}
           className="mt-12 flex items-center space-x-2 text-primaryText"
         >
