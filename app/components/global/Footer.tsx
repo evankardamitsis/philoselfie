@@ -6,6 +6,9 @@ import {Link} from '~/components/Link';
 import PortableText from '~/components/portableText/PortableText';
 import type {SanityLink} from '~/lib/sanity';
 
+import Facebook from '../icons/Facebook';
+import Instagram from '../icons/Instagram';
+
 const firstColumnLinks = [
   {
     _key: 'link1',
@@ -144,13 +147,13 @@ export default function Footer() {
       {/* AVKA Footer */}
       <div
         className={clsx(
-          'align-start relative overflow-hidden rounded-xl bg-primaryLight px-4 py-8',
+          'align-start relative overflow-hidden rounded-xl bg-offWhite px-4 py-8',
           'md:px-8 md:py-10',
         )}
       >
         <div
           className={clsx(
-            'mb-12 grid grid-cols-1 content-center items-center gap-4 border-t-2 md:grid-cols-2',
+            'mb-12 grid grid-cols-1 content-center items-center gap-4 border-t-[1px] md:grid-cols-2',
           )}
         >
           <h5 className="my-7 text-left text-xl font-bold leading-paragraph md:w-3/4">
@@ -161,16 +164,16 @@ export default function Footer() {
         </div>
         <div
           className={clsx(
-            'mb-12 grid grid-cols-1 gap-4 border-t-4 md:grid-cols-3',
+            'mb-12 grid grid-cols-1 gap-4 border-t-4 md:grid-cols-4',
           )}
         >
           <div className="flex flex-col">
             <LogoIcon width="200" />
 
-            <h5 className="mb-7 text-left text-lg font-bold leading-paragraph md:w-3/4">
+            <h5 className="mb-7 text-left text-sm font-bold leading-paragraph md:w-3/4">
               ΕΛΙΞΙΡΙΟ ΠΟΛΥΒΙΤΑΜΙΝΩΝ ΚΑΙ ΜΕΤΑΛΛΩΝ ΜΕ ΕΚΧΥΛΙΣΜΑ ΦΥΛΛΩΝ ΕΛΙΑΣ
             </h5>
-            <p className="w-full leading-paragraph md:w-2/3">
+            <p className="w-full text-sm leading-paragraph md:w-3/4">
               Το Philoselfie δεν μοιάζει με κανένα συμπλήρωμα διατροφής.
               Εκφράζει απόλυτα την πλέον σύγχρονη διατροφική φιλοσοφία, με
               μελετημένη σύσταση και δοσολογία που καθιστά την αλληλεπίδραση των
@@ -186,8 +189,15 @@ export default function Footer() {
             <h5 className="mb-4 font-bold">Useful Links</h5>
             {renderLinks}
           </div>
+          <div className="mt-8 flex flex-col md:mt-12">
+            <h5 className="mb-4 font-bold">Join us on</h5>
+            <div className="flex flex-row gap-4">
+              <Facebook link="https://facebook.com" />
+              <Instagram link="https://instagram.com" />
+            </div>
+          </div>
         </div>
-        <div className="border-t-2 border-slate-700 text-center">
+        <div className="border-t-[1px] border-slate-700 text-center">
           <p className="my-5 text-[12px]">
             Το Philoselfie είναι το συμπλήρωμα διατροφής νέας γενιάς που σε
             αγαπάει αποδεδειγμένα, καθώς οι ισχυρισμοί υγείας του είναι επίσημα
@@ -197,7 +207,7 @@ export default function Footer() {
         {footer?.text && (
           <PortableText
             blocks={footer.text}
-            className={clsx('text-xs', 'text-sm text-darkGray')}
+            className={clsx('text-xs', 'text-sm text-darkGray', 'text-center')}
           />
         )}
       </div>
