@@ -11,6 +11,7 @@ type ColumnData = {
     width: number;
     height: number;
   };
+  key: string;
 };
 
 type ThreeColumnLayoutProps = {
@@ -27,10 +28,10 @@ export default function ThreeColumnLayout({
   className,
 }: ThreeColumnLayoutProps) {
   const renderColumn = (columnData: ColumnData) => {
-    const {content, imageData} = columnData;
+    const {content, imageData, key} = columnData;
 
     return (
-      <div className="w-full md:w-1/3">
+      <div className="w-full md:w-1/3" key={key}>
         {imageData && (
           <div className="mb-4">
             <img

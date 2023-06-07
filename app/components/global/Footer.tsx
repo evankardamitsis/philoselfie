@@ -1,8 +1,6 @@
 import {useMatches} from '@remix-run/react';
 import clsx from 'clsx';
-import React from 'react';
 
-import SanityFooter from '~/components/global/SanityFooter';
 import LogoIcon from '~/components/icons/Logo';
 import {Link} from '~/components/Link';
 import PortableText from '~/components/portableText/PortableText';
@@ -18,7 +16,7 @@ const firstColumnLinks = [
   {
     _key: 'link2',
     _type: 'linkExternal',
-    slug: 'https://example.com',
+    slug: 'https://example.gr',
     title: 'Σύνθεση',
   },
   {
@@ -152,13 +150,24 @@ export default function Footer() {
       >
         <div
           className={clsx(
-            'mb-12 grid grid-cols-1 gap-4 border-t-2 md:grid-cols-3',
+            'mb-12 grid grid-cols-1 content-center items-center gap-4 border-t-2 md:grid-cols-2',
+          )}
+        >
+          <h5 className="my-7 text-left text-xl font-bold leading-paragraph md:w-3/4">
+            Κέρδισε 10% έκπτωση στην πρώτη σου παραγγελία με την εγγραφή σου στο
+            newsletter μας 🔔
+          </h5>
+          <div className="klaviyo-form-Sxmmbd"></div>
+        </div>
+        <div
+          className={clsx(
+            'mb-12 grid grid-cols-1 gap-4 border-t-4 md:grid-cols-3',
           )}
         >
           <div className="flex flex-col">
             <LogoIcon width="200" />
 
-            <h5 className="mb-4 w-3/5 font-bold leading-paragraph">
+            <h5 className="mb-7 text-left text-lg font-bold leading-paragraph md:w-3/4">
               ΕΛΙΞΙΡΙΟ ΠΟΛΥΒΙΤΑΜΙΝΩΝ ΚΑΙ ΜΕΤΑΛΛΩΝ ΜΕ ΕΚΧΥΛΙΣΜΑ ΦΥΛΛΩΝ ΕΛΙΑΣ
             </h5>
             <p className="w-full leading-paragraph md:w-2/3">
@@ -192,6 +201,11 @@ export default function Footer() {
           />
         )}
       </div>
+      {/* Script to load Klaviyo */}
+      <script
+        async
+        src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=V6h3S3"
+      ></script>
     </footer>
   );
 }

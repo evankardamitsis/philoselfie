@@ -93,6 +93,7 @@ export default function HomeHero({hero}: Props) {
             alt: 'Image Alt Text',
             width: 550,
             height: 357,
+            key: 'column2',
           }}
           imageOnLeft={false}
           className="mx-5 md:ml-40"
@@ -117,6 +118,7 @@ export default function HomeHero({hero}: Props) {
             alt: 'Image Alt Text',
             width: 450,
             height: 257,
+            key: 'column2',
           }}
           imageOnLeft={true}
           className="mt-38"
@@ -137,7 +139,7 @@ export default function HomeHero({hero}: Props) {
           }
           column2={[
             <>
-              <div className="flex flex-row justify-between">
+              <div className="flex flex-row justify-between" key="column2">
                 <List
                   key="list"
                   items={[
@@ -190,6 +192,7 @@ export default function HomeHero({hero}: Props) {
                 width: 487,
                 height: 284,
               },
+              key: 'column1',
             }}
             column2={{
               content: (
@@ -216,6 +219,7 @@ export default function HomeHero({hero}: Props) {
                 width: 487,
                 height: 284,
               },
+              key: 'column2',
             }}
             column3={{
               content: (
@@ -242,6 +246,7 @@ export default function HomeHero({hero}: Props) {
                 width: 487,
                 height: 284,
               },
+              key: 'column3',
             }}
             className="gap-8"
           />
@@ -276,7 +281,7 @@ export default function HomeHero({hero}: Props) {
           }
           column2={[
             <>
-              <p className="leading-paragraph md:w-2/3">
+              <p className="leading-paragraph md:w-2/3" key="column2">
                 Το Philoselfie δεν μοιάζει με κανένα συμπλήρωμα διατροφής.
                 Εκφράζει απόλυτα την πλέον σύγχρονη διατροφική φιλοσοφία και
                 εισάγει μια πρωτοποριακή διατροφική πραγματικότητα, με
