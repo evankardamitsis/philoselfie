@@ -285,6 +285,7 @@ export type SanityPage = {
   hero?: SanityHeroPage;
   seo: SanitySeo;
   title: string;
+  component: string;
 };
 
 export type SanityProductHotspot = {
@@ -320,4 +321,3 @@ export type SanitySeo = {
   image?: SanityAssetImage;
   title: string;
 };
-
