@@ -24,6 +24,7 @@ type useSanityQuery = {
 };
 
 export type Sanity = {
+  fetch<T>(SHOP_PAGE_QUERY: string, arg1: { slug: string | undefined; }): unknown;
   client: SanityClient;
   preview?:
     | ({session: PreviewSession} & PreviewData)

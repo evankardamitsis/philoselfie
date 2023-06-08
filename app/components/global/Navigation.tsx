@@ -51,6 +51,13 @@ export default function Navigation({menuLinks}: Props) {
     });
   }, [menuLinks]);
 
+  const shopLink = {
+    _type: 'linkInternal',
+    slug: '/shop',
+    title: 'Shop',
+    _key: 'shop-link',
+  };
+
   return (
     <nav
       className={clsx(
@@ -58,6 +65,11 @@ export default function Navigation({menuLinks}: Props) {
         'lg:flex',
       )}
     >
+      <div className="flex items-center">
+        <Link className="linkTextNavigation" to={shopLink.slug}>
+          {shopLink.title}
+        </Link>
+      </div>
       {renderLinks()}
     </nav>
   );

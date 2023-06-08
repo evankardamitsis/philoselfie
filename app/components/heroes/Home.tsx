@@ -1,6 +1,6 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable hydrogen/prefer-image-component */
-import {Image} from '@shopify/hydrogen';
+
 import clsx from 'clsx';
 
 import Banner from '~/components/elements/Banner';
@@ -83,7 +83,10 @@ export default function HomeHero({hero}: Props) {
                 alt="health-claims"
                 className="mt-12 w-96"
               />
-              <Button className="mt-12 border-2 bg-white text-offBlack">
+              <Button
+                className="mt-12 border-2 bg-white text-offBlack md:w-1/3"
+                to="/contact"
+              >
                 Μάθε περισσότερα
               </Button>
             </>
