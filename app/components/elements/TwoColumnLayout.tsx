@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import React from 'react';
 
 type ImageData = {
+  className?: string;
   src: string;
   alt: string;
   width: number;
@@ -24,7 +25,7 @@ export default function TwoColumnLayout({
   className,
 }: TwoColumnLayoutProps) {
   const renderColumn2 = () => {
-    if (typeof column2 === 'object' && 'src' in column2) {
+    if (column2 && typeof column2 === 'object' && 'src' in column2) {
       return (
         <div
           key="imageColumn"
@@ -38,16 +39,18 @@ export default function TwoColumnLayout({
             alt={column2.alt}
             width={column2.width}
             height={column2.height}
-            className="rounded-lg"
+            className={column2.className ? column2.className : 'rounded-lg'}
           />
         </div>
       );
-    } else {
+    } else if (column2) {
       return (
         <div key="column2" className="w-full md:ml-2 md:mr-4 md:w-1/2">
           {column2}
         </div>
       );
+    } else {
+      return null;
     }
   };
 

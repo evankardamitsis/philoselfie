@@ -7,6 +7,7 @@ import invariant from 'tiny-invariant';
 import Filosofia from '~/components/Filosofia';
 import PageHero from '~/components/heroes/Page';
 import PortableText from '~/components/portableText/PortableText';
+import Shop from '~/components/Shop';
 import {SanityPage} from '~/lib/sanity';
 import {ColorTheme} from '~/lib/theme';
 import {fetchGids, notFound, validateLocale} from '~/lib/utils';
@@ -18,6 +19,7 @@ type ComponentMap = {
 
 const COMPONENT_MAP: ComponentMap = {
   Filosofia,
+  Shop,
   // add other custom components as you create more pages...
 };
 
