@@ -321,12 +321,3 @@ export type SanitySeo = {
   title: string;
 };
 
-export type SanityShopPage = {
-  _id: string;
-  colorTheme?: SanityColorTheme;
-  modules: (SanityModuleImage | SanityModuleInstagram)[];
-  seo: SanitySeo;
-  sortOrder: string;
-  title: string;
-  slug?: string;
-};
