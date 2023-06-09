@@ -55,7 +55,7 @@ const Shop: React.FC<ShopProps> = () => {
                 17.99€ / μήνα
               </h4>
               <Button
-                className="my-8 w-1/3 border-2 bg-black text-white"
+                className="my-8 w-1/2 border-2 bg-black text-white"
                 to="/contact"
               >
                 Ξεκίνα συνδρομή

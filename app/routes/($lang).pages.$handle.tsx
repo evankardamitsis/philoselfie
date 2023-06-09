@@ -4,6 +4,7 @@ import {json, type LoaderArgs} from '@shopify/remix-oxygen';
 import clsx from 'clsx';
 import invariant from 'tiny-invariant';
 
+import Drasi from '~/components/Drasi';
 import Filosofia from '~/components/Filosofia';
 import PageHero from '~/components/heroes/Page';
 import PortableText from '~/components/portableText/PortableText';
@@ -20,6 +21,7 @@ type ComponentMap = {
 const COMPONENT_MAP: ComponentMap = {
   Filosofia,
   Shop,
+  Drasi,
   // add other custom components as you create more pages...
 };
 

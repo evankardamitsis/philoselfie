@@ -7,19 +7,22 @@ import PlusIcon from '~/components/icons/Plus';
 import PortableText from '~/components/portableText/PortableText';
 import type {SanityModuleAccordion} from '~/lib/sanity';
 
+interface AccordionGroup {
+  _key: string;
+  title: string;
+  body: string;
+}
+
 type Props = {
-  value: PortableTextBlock & SanityModuleAccordion;
+  value?: PortableTextBlock & SanityModuleAccordion;
+  className?: string;
+  groups: AccordionGroup[];
 };
 
-export default function AccordionBlock({value}: Props) {
+export default function AccordionBlock({value, className, groups}: Props) {
   return (
-    <div
-      className={clsx(
-        'first:mt-0 last:mb-0', //
-        'my-8',
-      )}
-    >
-      {value?.groups?.map((group) => (
+    <div className={clsx('first:mt-0 last:mb-0', 'my-8')}>
+      {groups.map((group) => (
         <Disclosure key={group._key}>
           {({open}: {open: boolean}) => (
             <div className="flex flex-col border-b border-b-gray">
@@ -35,7 +38,7 @@ export default function AccordionBlock({value}: Props) {
                 </div>
               </Disclosure.Button>
               <Disclosure.Panel className="pb-4 text-md">
-                <PortableText blocks={group.body} />
+                <p>{group.body}</p>
               </Disclosure.Panel>
             </div>
           )}
