@@ -4,6 +4,7 @@ import React from 'react';
 type ListItemProps = {
   icon: React.ReactNode;
   text: string;
+  className?: string;
 };
 
 type ListProps = {
