@@ -38,7 +38,12 @@ export default function AccordionBlock({value, className, groups}: Props) {
                 </div>
               </Disclosure.Button>
               <Disclosure.Panel className="pb-4 text-md">
-                <p>{group.body}</p>
+                <div
+                  className="leading-paragraph"
+                  dangerouslySetInnerHTML={{
+                    __html: group.body,
+                  }}
+                ></div>
               </Disclosure.Panel>
             </div>
           )}
