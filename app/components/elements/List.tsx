@@ -15,10 +15,9 @@ type ListProps = {
 export default function List({items, className}: ListProps) {
   return (
     <ul className={clsx('space-y-4', className)}>
-      {items.map((item, index) => (
+      {items.map((item) => (
         <li
-          // eslint-disable-next-line react/no-array-index-key
-          key={index}
+          key={item.text}
           className="mt-12 flex items-center space-x-2 text-primaryText"
         >
           <div className="mr-3 text-primaryLight">{item.icon}</div>

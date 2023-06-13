@@ -2,6 +2,7 @@
 /* eslint-disable hydrogen/prefer-image-component */
 
 import clsx from 'clsx';
+import React from 'react';
 
 import Banner from '~/components/elements/Banner';
 import LinkButton from '~/components/elements/LinkButton';
@@ -137,38 +138,38 @@ export default function HomeHero({hero}: Props) {
                 Φρόντισε για τον εαυτό σου και εμείς φροντίζουμε να έχεις τον
                 απόλυτο έλεγχο της συνδρομής σου μέσα από το προφίλ σου.
               </p>
-              <Button className="mt-12">Ξεκίνα συνδρομή</Button>
+
+              <Button className="mt-12 md:w-2/3" to="/pages/subscription">
+                Ξεκίνα συνδρομή
+              </Button>
             </>
           }
           column2={[
-            <>
-              <div className="flex flex-row justify-between" key="column2">
-                <List
-                  key="list"
-                  items={[
-                    {icon: <Check />, text: 'Περισσότερη ενέργεια'},
-                    {icon: <Check />, text: 'Καλύτερη διάθεση'},
-                    {icon: <Check />, text: 'Ενισχυμένο ανοσοποιητικό'},
-                    {icon: <Check />, text: 'Απολαυστικός ύπνος'},
-                    {
-                      icon: <Check />,
-                      text: 'Βελτιωμένη κινητικότητα του εντέρου',
-                    },
-                  ]}
-                  className="mt-12"
+            <div className="flex flex-row justify-between" key="column2">
+              <List
+                items={[
+                  {icon: <Check />, text: 'Περισσότερη ενέργεια'},
+                  {icon: <Check />, text: 'Καλύτερη διάθεση'},
+                  {icon: <Check />, text: 'Ενισχυμένο ανοσοποιητικό'},
+                  {icon: <Check />, text: 'Απολαυστικός ύπνος'},
+                  {
+                    icon: <Check />,
+                    text: 'Βελτιωμένη κινητικότητα του εντέρου',
+                  },
+                ]}
+                className="mt-12"
+              />
+              <div className="mr-[-60px]">
+                <img
+                  key="image"
+                  src="https://cdn.shopify.com/s/files/1/0755/1808/3415/files/brunch-icon.png?v=1685703695"
+                  alt="Flower Alt Text"
+                  width={290}
+                  height={268}
+                  className="flex content-end"
                 />
-                <div className="mr-[-60px]">
-                  <img
-                    key="image"
-                    src="https://cdn.shopify.com/s/files/1/0755/1808/3415/files/brunch-icon.png?v=1685703695"
-                    alt="Flower Alt Text"
-                    width={290}
-                    height={268}
-                    className="flex content-end"
-                  />
-                </div>
               </div>
-            </>,
+            </div>,
           ]}
           imageOnLeft={false}
           className="mt-38 rounded-lg bg-primaryLight p-12"
