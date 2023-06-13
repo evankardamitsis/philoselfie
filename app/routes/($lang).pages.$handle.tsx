@@ -85,13 +85,8 @@ export default function Page({showPageTitle = true}) {
   return (
     <ColorTheme value={page.colorTheme}>
       {/* Page hero */}
-      {Component ? (
+      {Component && page.hero && (
         <PageHero fallbackTitle={page.title} hero={page.hero} />
-      ) : (
-        <PageHero
-          fallbackTitle={showPageTitle ? page.title : ''}
-          hero={page.hero}
-        />
       )}
 
       {/* Body */}
